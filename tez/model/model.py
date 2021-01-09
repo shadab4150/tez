@@ -10,7 +10,7 @@ import torch.nn as nn
 from tez import enums
 from tez.callbacks import CallbackRunner
 from tez.utils import AverageMeter
-from tqdm import tqdm
+from tqdm.notebook import tqdm
 
 warnings.filterwarnings("ignore", message=torch.optim.lr_scheduler.SAVE_STATE_WARNING)
 
