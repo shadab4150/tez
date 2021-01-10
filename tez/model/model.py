@@ -177,8 +177,10 @@ class Model(nn.Module):
         _, loss, metrics = self.model_fn(data)
         return loss, metrics
 
-    def predict_one_step(self, data):
-        output, _, _ = self.model_fn(data)
+    def predict_one_step(self, data, device):
+        for key, value in data.items():
+            data[key] = value.to(device)
+        output, _, _ = self(**data)
         return output
 
     def update_metrics(self, losses, monitor):
